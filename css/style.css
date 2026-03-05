@@ -73,7 +73,7 @@ button {
 button:hover { background: #218838; }
 
 #popup { 
-    display: none; 
+    display: none !important; 
     position: fixed; 
     top: 0; 
     left: 0; 

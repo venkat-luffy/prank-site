@@ -12,7 +12,7 @@ document.getElementById('jobForm').addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('Prank data collected:', Object.fromEntries(new FormData(e.target)));
     document.getElementById('popup').style.display = 'block';
-    document.getElementById('prankVideo').play();
+    //document.getElementById('prankVideo').play();
 });
 
 // Close popup function
