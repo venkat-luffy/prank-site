@@ -1,5 +1,5 @@
-// Wait for page to fully load
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("Page loaded - script ready");
     
     // Company name from URL
     const params = new URLSearchParams(window.location.search);
@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('companyHeader').textContent = `🎉 ${company}.com - Exclusive Job Opportunity! 🎉`;
     document.getElementById('companyDesc').textContent = `Apply now at ${company}—Python/Java roles, high LPA!`;
 
-    // Form submit handler
+    // Form submit - ONLY after page loads
     const form = document.getElementById('jobForm');
-    console.log('Form found:', form); // Debug
-    
     form.addEventListener('submit', function(e) {
-        console.log('SUBMIT TRIGGERED!'); // Debug
+        console.log("🎉 SUBMIT CLICKED!");
         e.preventDefault();
         
-        const formData = Object.fromEntries(new FormData(e.target));
+        // Log prank data
+        const formData = Object.fromEntries(new FormData(form));
         console.log('😂 PRANK DATA:', formData);
         
+        // Show video popup
         document.getElementById('popup').style.display = 'block';
-        console.log('Popup should show now');
+        document.getElementById('prankVideo').play();
     });
 });
 

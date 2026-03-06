@@ -27,13 +27,13 @@
 
     <!-- HIDDEN UNTIL SUBMIT -->
     <div id="popup" style="display: none !important;">
-        <span class="close" onclick="closePopup()">×</span>
-        <iframe id="prankVideo" 
-                src="https://www.youtube.com/embed/KIhRQKzV8Xw?autoplay=1&mute=1&playsinline=1" 
-                frameborder="0" allowfullscreen 
-                style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;height:70%;border-radius:10px;">
-        </iframe>
+        <span class="close" onclick="closePopup()">x</span>
+        <video id="prankVideo" autoplay muted playsinline controls 
+            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;height:70%;border-radius:10px;">
+            <source src="prank.mp4" type="video/mp4">
+        </video>
     </div>
+
 
     <script src="script.js"></script>
 </body>
