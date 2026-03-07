@@ -3,38 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Job Application</title>
+    <title>Job Application</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 id="companyHeader">🎉 Exclusive Job Opportunity! 🎉</h1>
-            <p id="companyDesc">Fill details quickly—limited spots!</p>
-        </header>
-        <form id="jobForm">
-            <label>Roll No:</label><input type="text" required>
-            <label>CGPA:</label><input type="number" step="0.01" min="0" max="10" required>
-            <label>Backlogs:</label><input type="number" min="0" required>
-            <label>Job Role:</label><input type="text" placeholder="e.g., Data Scientist" required>
-            <label>Expected LPA:</label><input type="number" required>
-            <label>Work Experience:</label><input type="number" min="0" required>
-            <label>Education:</label><input type="text" required>
-            <label>Courses:</label><textarea required></textarea>
-            <button type="submit">🚀 Submit Application!</button>
-        </form>
-    </div>
-
-    <!-- HIDDEN UNTIL SUBMIT -->
-    <div id="popup" style="display: none !important;">
-        <span class="close" onclick="closePopup()">x</span>
-        <video id="prankVideo" autoplay muted playsinline controls 
-            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;height:70%;border-radius:10px;">
+    <h1>🎉 Dream Job Application 🎉</h1>
+    <p>Fill the form below for high-paying IT jobs!</p>
+    
+    <form id="jobForm">
+        <label>Roll No:</label>
+        <input type="text" name="rollno" required>
+        
+        <label>CGPA:</label>
+        <input type="number" step="0.01" name="cgpa" required>
+        
+        <label>Backlogs:</label>
+        <input type="number" name="backlogs" required>
+        
+        <label>Job Role:</label>
+        <input type="text" name="jobrole" required>
+        
+        <label>Expected LPA:</label>
+        <input type="number" name="lpa" required>
+        
+        <label>Experience (years):</label>
+        <input type="number" name="experience" required>
+        
+        <label>Education:</label>
+        <input type="text" name="education" required>
+        
+        <label>Courses (Python, Java, etc):</label>
+        <textarea name="courses" required></textarea>
+        
+        <button type="submit">Submit Application</button>
+    </form>
+    
+    <div id="popup">
+        <span class="close" onclick="closePopup()">×</span>
+        <video id="prankVideo" autoplay playsinline controls>
             <source src="prank.mp4" type="video/mp4">
         </video>
     </div>
-
-
+    
     <script src="script.js"></script>
 </body>
 </html>
