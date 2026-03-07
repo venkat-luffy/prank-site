@@ -3,39 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application</title>
+    <title>Joint Hiring Drive 2024 - Top MNCs</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for company selection */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .company-card {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .company-card.selected {
+            border-color: #007bff;
+            background: #e7f1ff;
+            transform: scale(1.02);
+        }
+        
+        .company-card input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        
+        .company-logo {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        
+        .company-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .package {
+            color: #28a745;
+            font-size: 14px;
+        }
+        
+        .multiple-select-note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            color: #856404;
+        }
+        
+        .selection-summary {
+            background: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>🎉 Dream Job Application 🎉</h1>
-    <p>Fill the form below for high-paying IT jobs!</p>
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h1>🎉 JOINT HIRING DRIVE 2024 🎉</h1>
+        <h3 style="color: #007bff;">5 Top MNCs Hiring Together!</h3>
+        <p style="color: #28a745; font-size: 18px;">⚡ Apply to ONE company or MULTIPLE companies at once! ⚡</p>
+    </div>
+    
+    <!-- Fake Progress Bar -->
+    <div style="width: 100%; background: #eee; height: 8px; border-radius: 4px; margin: 20px 0;">
+        <div style="width: 80%; background: #007bff; height: 8px; border-radius: 4px;"></div>
+    </div>
+    <p style="text-align: right; color: #dc3545; font-weight: bold;">⏰ Only 20 seats left across all companies!</p>
     
     <form id="jobForm">
-        <label>Roll No:</label>
-        <input type="text" name="rollno" required>
+        <!-- Company Selection Section -->
+        <div style="background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h3 style="margin-top: 0;">🏢 Select Companies (Choose one or multiple):</h3>
+            
+            <div class="company-grid" id="companyGrid">
+                <!-- Company 1 -->
+                <div class="company-card" data-company="Google">
+                    <div class="company-logo">🔍</div>
+                    <div class="company-name">Google</div>
+                    <div class="package">Up to 45 LPA</div>
+                    <div style="font-size: 12px; color: #666;">Python/Java/AI</div>
+                    <input type="checkbox" name="companies" value="Google" style="width: auto; margin-top: 10px;">
+                </div>
+                
+                <!-- Company 2 -->
+                <div class="company-card" data-company="Microsoft">
+                    <div class="company-logo">🪟</div>
+                    <div class="company-name">Microsoft</div>
+                    <div class="package">Up to 42 LPA</div>
+                    <div style="font-size: 12px; color: #666;">Azure/C#/.NET</div>
+                    <input type="checkbox" name="companies" value="Microsoft" style="width: auto; margin-top: 10px;">
+                </div>
+                
+                <!-- Company 3 -->
+                <div class="company-card" data-company="Amazon">
+                    <div class="company-logo">📦</div>
+                    <div class="company-name">Amazon</div>
+                    <div class="package">Up to 40 LPA</div>
+                    <div style="font-size: 12px; color: #666;">AWS/Java/React</div>
+                    <input type="checkbox" name="companies" value="Amazon" style="width: auto; margin-top: 10px;">
+                </div>
+                
+                <!-- Company 4 -->
+                <div class="company-card" data-company="Meta">
+                    <div class="company-logo">📘</div>
+                    <div class="company-name">Meta</div>
+                    <div class="package">Up to 50 LPA</div>
+                    <div style="font-size: 12px; color: #666;">React/Php/Python</div>
+                    <input type="checkbox" name="companies" value="Meta" style="width: auto; margin-top: 10px;">
+                </div>
+                
+                <!-- Company 5 -->
+                <div class="company-card" data-company="Apple">
+                    <div class="company-logo">🍎</div>
+                    <div class="company-name">Apple</div>
+                    <div class="package">Up to 48 LPA</div>
+                    <div style="font-size: 12px; color: #666;">Swift/iOS/MacOS</div>
+                    <input type="checkbox" name="companies" value="Apple" style="width: auto; margin-top: 10px;">
+                </div>
+            </div>
+            
+            <div class="multiple-select-note">
+                ✅ <strong>Note:</strong> You can select MULTIPLE companies! Apply to all at once and get multiple offers!
+            </div>
+            
+            <div id="selectionSummary" class="selection-summary">
+                Selected: None (Select at least one company)
+            </div>
+        </div>
         
-        <label>CGPA:</label>
-        <input type="number" step="0.01" name="cgpa" required>
+        <!-- Personal Details Section -->
+        <div style="background: white; padding: 20px; border-radius: 10px;">
+            <h3 style="margin-top: 0;">📋 Your Details</h3>
+            
+            <label>Full Name:</label>
+            <input type="text" name="fullname" placeholder="Enter your full name" required>
+            
+            <label>Roll No:</label>
+            <input type="text" name="rollno" placeholder="University Roll No" required>
+            
+            <label>CGPA:</label>
+            <input type="number" step="0.01" min="0" max="10" name="cgpa" placeholder="e.g., 8.5" required>
+            
+            <label>Backlogs:</label>
+            <input type="number" min="0" name="backlogs" placeholder="Number of backlogs" value="0" required>
+            
+            <label>Preferred Job Role:</label>
+            <select name="jobrole" required>
+                <option value="">-- Select Role --</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Data Scientist">Data Scientist</option>
+                <option value="Frontend Developer">Frontend Developer</option>
+                <option value="Backend Developer">Backend Developer</option>
+                <option value="Full Stack Developer">Full Stack Developer</option>
+                <option value="AI/ML Engineer">AI/ML Engineer</option>
+            </select>
+            
+            <label>Expected LPA:</label>
+            <input type="number" step="0.1" min="3" max="50" name="lpa" placeholder="e.g., 12.5" required>
+            
+            <label>Work Experience (years):</label>
+            <input type="number" min="0" step="0.5" name="experience" placeholder="Freshers enter 0" required>
+            
+            <label>Education:</label>
+            <select name="education" required>
+                <option value="">-- Select Education --</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="M.Tech">M.Tech</option>
+                <option value="BCA">BCA</option>
+                <option value="MCA">MCA</option>
+                <option value="B.Sc">B.Sc</option>
+                <option value="M.Sc">M.Sc</option>
+            </select>
+            
+            <label>Skills (Python, Java, etc.):</label>
+            <textarea name="skills" placeholder="List your skills (comma separated)" rows="3" required></textarea>
+            
+            <label>Upload Resume (Optional - will help shortlist):</label>
+            <input type="file" name="resume" accept=".pdf,.doc,.docx" style="padding: 10px; background: #f8f9fa;">
+            
+            <div style="background: #e7f3ff; padding: 15px; border-radius: 5px; margin: 20px 0;">
+                <input type="checkbox" name="terms" required style="width: auto; margin-right: 10px;">
+                <label style="display: inline;">I confirm that all information provided is correct</label>
+            </div>
+        </div>
         
-        <label>Backlogs:</label>
-        <input type="number" name="backlogs" required>
-        
-        <label>Job Role:</label>
-        <input type="text" name="jobrole" required>
-        
-        <label>Expected LPA:</label>
-        <input type="number" name="lpa" required>
-        
-        <label>Experience (years):</label>
-        <input type="number" name="experience" required>
-        
-        <label>Education:</label>
-        <input type="text" name="education" required>
-        
-        <label>Courses (Python, Java, etc):</label>
-        <textarea name="courses" required></textarea>
-        
-        <button type="submit">Submit Application</button>
+        <button type="submit" style="margin-top: 20px; font-size: 20px; padding: 15px;">🚀 Submit Application to Selected Companies</button>
     </form>
     
     <div id="popup">
@@ -46,5 +208,57 @@
     </div>
     
     <script src="script.js"></script>
+    
+    <script>
+        // Company selection logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const companyCards = document.querySelectorAll('.company-card');
+            const selectionSummary = document.getElementById('selectionSummary');
+            
+            companyCards.forEach(card => {
+                const checkbox = card.querySelector('input[type="checkbox"]');
+                
+                card.addEventListener('click', function(e) {
+                    if (e.target.type !== 'checkbox') {
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    
+                    if (checkbox.checked) {
+                        card.classList.add('selected');
+                    } else {
+                        card.classList.remove('selected');
+                    }
+                    
+                    updateSelectionSummary();
+                });
+                
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        card.classList.add('selected');
+                    } else {
+                        card.classList.remove('selected');
+                    }
+                    updateSelectionSummary();
+                });
+            });
+            
+            function updateSelectionSummary() {
+                const selected = [];
+                companyCards.forEach(card => {
+                    if (card.querySelector('input[type="checkbox"]').checked) {
+                        selected.push(card.dataset.company);
+                    }
+                });
+                
+                if (selected.length === 0) {
+                    selectionSummary.innerHTML = '⚠️ Selected: None (Select at least one company)';
+                    selectionSummary.style.background = '#f8d7da';
+                } else {
+                    selectionSummary.innerHTML = '✅ Selected: ' + selected.join(' + ') + ' (You can apply to multiple companies!)';
+                    selectionSummary.style.background = '#d4edda';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
